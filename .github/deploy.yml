@@ -1,0 +1,22 @@
+name: Deploy Timestamp Converter over SSH
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.IP }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: |
+          echo "Enter active project directory ${{ secrets.PROJECT_DIR }}"
+          cd ${{ secrets.PROJECT_DIR }}
+          echo "Pull from master"
+          git pull origin master
+          echo "🚀 Ready"
+
