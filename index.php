@@ -112,11 +112,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script>
         var now = new Date();
-        var utcTime = new Date(date.getTime() + now.getTimezoneOffset() * 60000);
-        var formattedNow = now.getFullYear() + "-" +
-                            ("0"+(now.getMonth()+1)).slice(-2) + "-" +
-                            ("0" + now.getDate()).slice(-2) +  " " + 
-                            ("0" + now.getHours()).slice(-2) + ":" + ("0" + now.getMinutes()).slice(-2) + ":" + ("0" + now.getSeconds()).slice(-2);
+        var utcTime = new Date(now.getTime() + now.getTimezoneOffset() * 60000);
+        var formattedNow = utcTime.getFullYear() + "-" +
+                            ("0"+(utcTime.getMonth()+1)).slice(-2) + "-" +
+                            ("0" + utcTime.getDate()).slice(-2) +  " " + 
+                            ("0" + utcTime.getHours()).slice(-2) + ":" + ("0" + utcTime.getMinutes()).slice(-2) + ":" + ("0" + utcTime.getSeconds()).slice(-2);
         $('#input-date-utc').val(formattedNow);
         $("#input-timestamp").val(Math.floor(now.getTime() / 1000));
 
