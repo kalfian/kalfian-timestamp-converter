@@ -25,7 +25,7 @@
                 <p style="margin-bottom:0">Epoch Timestamp: <span id="now-timestamp">-</span></p>
                 <p style="margin-bottom:0">GMT: <span id="now-gmt">-</span></p>
                 <p style="margin-bottom:0">Your Timezone: <span id="now-timezone">-</span></p>
-                <p style="margin-bottom:0">Formatted Time: <span id="now-formatted">-</span></p>
+                <p style="margin-bottom:0">Formatted Time (GMT): <span id="now-formatted">-</span></p>
             </div>
         </div>
     </div>
@@ -124,7 +124,10 @@
             var timestamp = Math.floor(now.getTime() / 1000);
             var gmt = now.toUTCString();
             var timezone = now.toLocaleString();
-            var formatted = ("0" + now.getDate()).slice(-2) + "-" + ("0"+(now.getMonth()+1)).slice(-2) + "-" + now.getFullYear() + " " + ("0" + now.getHours()).slice(-2) + ":" + ("0" + now.getMinutes()).slice(-2) + ":" + ("0" + now.getSeconds()).slice(-2);
+            var formatted = utcTime.getFullYear() + "-" +
+                            ("0"+(utcTime.getMonth()+1)).slice(-2) + "-" +
+                            ("0" + utcTime.getDate()).slice(-2) +  " " + 
+                            ("0" + utcTime.getHours()).slice(-2) + ":" + ("0" + utcTime.getMinutes()).slice(-2) + ":" + ("0" + utcTime.getSeconds()).slice(-2);
 
             $('#now-formatted').html(formatted);
             $('#now-timestamp').html(timestamp);
@@ -142,7 +145,7 @@
             var formatted = utcTime.getFullYear() + "-" +
                             ("0"+(utcTime.getMonth()+1)).slice(-2) + "-" +
                             ("0" + utcTime.getDate()).slice(-2) +  " " + 
-                            ("0" + utcTime.getHours()).slice(-2) + ":" + ("0" + utcTime.getMinutes()).slice(-2) + ":" + ("0" + utcTime.getSeconds()).slice(-2);;
+                            ("0" + utcTime.getHours()).slice(-2) + ":" + ("0" + utcTime.getMinutes()).slice(-2) + ":" + ("0" + utcTime.getSeconds()).slice(-2);
 
             $('#gmt-timestamp').html(gmt);
             $('#gmt-formatted').html(formatted);
