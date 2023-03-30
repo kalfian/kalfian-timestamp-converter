@@ -124,10 +124,10 @@
             var timestamp = Math.floor(now.getTime() / 1000);
             var gmt = now.toUTCString();
             var timezone = now.toLocaleString();
-            var formatted = utcTime.getFullYear() + "-" +
-                            ("0"+(utcTime.getMonth()+1)).slice(-2) + "-" +
-                            ("0" + utcTime.getDate()).slice(-2) +  " " + 
-                            ("0" + utcTime.getHours()).slice(-2) + ":" + ("0" + utcTime.getMinutes()).slice(-2) + ":" + ("0" + utcTime.getSeconds()).slice(-2);
+            var formatted = now.getFullYear() + "-" +
+                            ("0"+(now.getMonth()+1)).slice(-2) + "-" +
+                            ("0" + now.getDate()).slice(-2) +  " " + 
+                            ("0" + now.getHours()).slice(-2) + ":" + ("0" + now.getMinutes()).slice(-2) + ":" + ("0" + now.getSeconds()).slice(-2);
 
             $('#now-formatted').html(formatted);
             $('#now-timestamp').html(timestamp);
