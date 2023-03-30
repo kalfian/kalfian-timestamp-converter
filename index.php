@@ -138,7 +138,8 @@
             var gmt = date.toUTCString();
             var timezone = date.toString();
 
-            var formatted = ("0" + date.getDate()).slice(-2) + "-" + ("0"+(date.getMonth()+1)).slice(-2) + "-" + date.getFullYear() + " " + ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2) + ":" + ("0" + date.getSeconds()).slice(-2);
+            var utcTime = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
+            var formatted = ("0" + utcTime.getDate()).slice(-2) + "-" + ("0"+(utcTime.getMonth()+1)).slice(-2) + "-" + utcTime.getFullYear() + " " + ("0" + utcTime.getHours()).slice(-2) + ":" + ("0" + utcTime.getMinutes()).slice(-2) + ":" + ("0" + utcTime.getSeconds()).slice(-2);
 
             $('#gmt-timestamp').html(gmt);
             $('#gmt-formatted').html(formatted);
