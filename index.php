@@ -49,6 +49,11 @@
                     <td><p id="gmt-timestamp">-</p></td>
                 </tr>
                 <tr>
+                    <td>GMT Formatted</td>
+                    <td>:</td>
+                    <td><p id="gmt-formatted">-</p></td>
+                </tr>
+                <tr>
                     <td>Your timezone</td>
                     <td>:</td>
                     <td><p id="your-gmt-timestamp">-</p></td>
@@ -119,8 +124,7 @@
             var timestamp = Math.floor(now.getTime() / 1000);
             var gmt = now.toUTCString();
             var timezone = now.toLocaleString();
-            var formatted = ("0" + now.getDate()).slice(-2) + "-" + ("0"+(now.getMonth()+1)).slice(-2) + "-" +
-    now.getFullYear() + " " + ("0" + now.getHours()).slice(-2) + ":" + ("0" + now.getMinutes()).slice(-2) + ":" + ("0" + now.getSeconds()).slice(-2);
+            var formatted = ("0" + now.getDate()).slice(-2) + "-" + ("0"+(now.getMonth()+1)).slice(-2) + "-" + now.getFullYear() + " " + ("0" + now.getHours()).slice(-2) + ":" + ("0" + now.getMinutes()).slice(-2) + ":" + ("0" + now.getSeconds()).slice(-2);
 
             $('#now-formatted').html(formatted);
             $('#now-timestamp').html(timestamp);
@@ -133,7 +137,11 @@
             var date = new Date(timestamp * 1000);
             var gmt = date.toUTCString();
             var timezone = date.toString();
+
+            var formatted = ("0" + date.getDate()).slice(-2) + "-" + ("0"+(date.getMonth()+1)).slice(-2) + "-" + date.getFullYear() + " " + ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2) + ":" + ("0" + date.getSeconds()).slice(-2);
+
             $('#gmt-timestamp').html(gmt);
+            $('#gmt-formatted').html(formatted);
             $('#your-gmt-timestamp').html(timezone);
         });
 
