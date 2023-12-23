@@ -1,2 +1,2 @@
 # Date to Timestamp and Timestamp Converter
-simple Date timestamp converter using javascript, you can access it on [Kalfian Site](https://timestamp.kalfian.com)
+Simple Date timestamp converter to utc+7 and utc using javascript, you can access it on [Kalfian Site](https://timestamp.kalfian.com)
